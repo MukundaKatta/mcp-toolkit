@@ -42,7 +42,7 @@ export function getStatus(): Record<string, unknown> {
   return { service: "mcp-toolkit", version: VERSION, ready: true };
 }
 
-if (process.argv[1] && import.meta.url === `file://${process.argv[1]}`) {
+if (globalThis.process.argv[1] && import.meta.url === `file://${globalThis.process.argv[1]}`) {
   console.log(`mcp-toolkit v${VERSION}`);
   process("hello world").then((r) => console.log(JSON.stringify(r, null, 2)));
 }
