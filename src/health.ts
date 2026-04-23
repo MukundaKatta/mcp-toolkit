@@ -1,4 +1,6 @@
 // mcp-toolkit — health check and metrics
+import { VERSION } from "./core.js";
+
 export interface HealthStatus {
   service: string;
   status: "ok" | "degraded" | "down";
@@ -13,7 +15,7 @@ export function getHealth(metrics: Record<string, number> = {}): HealthStatus {
   return {
     service: "mcp-toolkit",
     status: "ok",
-    version: "0.1.0",
+    version: VERSION,
     uptime: Math.floor((Date.now() - startTime) / 1000),
     metrics,
   };
